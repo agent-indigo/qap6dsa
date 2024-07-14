@@ -1,4 +1,5 @@
 package com.keyin.hynes.braden.qap6dsa.classes;
+import com.keyin.hynes.braden.qap6dsa.enums.Species;
 public class Queue {
     private Animal[] animals;
     private int qty;
@@ -42,17 +43,18 @@ public class Queue {
             isFull();
         }
     }
-    public void dequeue(int id) {
+    public void dequeue(Species species) {
         if (!isEmpty()) {
-            for (Animal animal : animals) {
-                if (animal.getId() == id) {
-                    animal = null;
-                    front++;
-                    if (front > back) {
-                        front = back = 1;
+            for (int i = front; i <= back; i++) {
+                if (animals[i].getSpecies() == species) {
+                    System.out.println("Removed: " + animals[i].getName());
+                    for (int j = i; j < back; j++) {
+                        animals[j] = animals[j + 1];
                     }
+                    animals[back] = null;
+                    back--;
                     qty--;
-                    System.out.println("Animal successfully removed.");
+                    return;
                 }
             }
         } else {
@@ -64,6 +66,9 @@ public class Queue {
     }
     public void delete() {
         this.animals = null;
+        this.qty = 0;
+        this.front = -1;
+        this.back = -1;
         System.out.println("Queue deleted.");
     }
 }
