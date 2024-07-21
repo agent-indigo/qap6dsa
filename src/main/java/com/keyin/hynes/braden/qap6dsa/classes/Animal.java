@@ -1,6 +1,6 @@
 package com.keyin.hynes.braden.qap6dsa.classes;
 import com.keyin.hynes.braden.qap6dsa.enums.Species;
-public class Animal {
+public final class Animal {
     private String name;
     private Species species;
     public Animal(

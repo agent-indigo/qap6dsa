@@ -1,6 +1,6 @@
 package com.keyin.hynes.braden.qap6dsa.classes;
 import com.keyin.hynes.braden.qap6dsa.enums.Species;
-public class Queue {
+public final class Queue {
     private Animal[] animals;
     private int qty;
     private int front;
